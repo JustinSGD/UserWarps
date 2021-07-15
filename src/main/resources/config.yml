@@ -1,0 +1,24 @@
+MySQL:
+  Host: 'localhost'
+  Port: 3306
+  Database: 'SWarp'
+  User: 'SWarp'
+  Password: ''
+
+Messages:
+  Prefix: '§7[§eUserWarp§7]'
+  SWarpCommand:
+    Help: '[prefix] §7Um deine §6Warps §7zu verwalten, gebe §e/swarp [warpname] [delete|create|list|tp] §7ein.'
+
+Inventory:
+  Main:
+    Title: ' §7» §eUserWarps'
+    Items:
+      Bookshelf:
+        Name: '§7» §eWarps §7(§aAlphabetisch sortiert§7)'
+      Clock:
+        Name: '§7» §eWarps §7(§aZuletzt genutzte Warps§7)'
+      Book:
+        Name: '§7» §eWarps §7(§aMeist genutzte Warps§7)'
+      Comparator:
+        Name: '§7» §eWarps §7(§aVerwaltung§7)'

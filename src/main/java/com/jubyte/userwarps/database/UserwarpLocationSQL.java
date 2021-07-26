@@ -47,8 +47,8 @@ public class UserwarpLocationSQL {
 
     public static void createLocation(int iD, String warpName, String world, double locationX, double locationY, double locationZ, float yaw, float pitch) {
         if(!locationExists(warpName)) {
-            String query = "INSERT INTO user_warp_location (player_id, location_name, location_world, location_x, location_y, location_z, location_yaw, location_pitch, uses, last_use) " +
-                    "VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO user_warp_location (player_id, location_name, location_world, location_x, location_y, location_z, location_yaw, location_pitch, uses) " +
+                    "VALUES (?,?,?,?,?,?,?,?,?)";
             try {
                 PreparedStatement statement = UserWarps.getPlugin().getMySQL().getConnection().prepareStatement(query);
                 statement.setInt(1, iD);
@@ -60,7 +60,6 @@ public class UserwarpLocationSQL {
                 statement.setFloat(7, yaw);
                 statement.setFloat(8, pitch);
                 statement.setInt(9, 0);
-                statement.setLong(10, 0);
                 statement.execute();
                 Bukkit.getLogger().info("The UserWarp " + warpName + " was created by ID " + iD + ".");
             } catch (SQLException e) {
@@ -85,8 +84,7 @@ public class UserwarpLocationSQL {
                                 resultSet.getDouble("location_z"),
                                 resultSet.getFloat("location_yaw"),
                                 resultSet.getFloat("location_pitch")),
-                        resultSet.getInt("uses"),
-                        resultSet.getLong("last_use"));
+                        resultSet.getInt("uses"));
             }
             return locationEntry;
         } catch (SQLException e) {
@@ -136,7 +134,7 @@ public class UserwarpLocationSQL {
                         resultSet.getFloat("location_pitch"));
                 int uses = resultSet.getInt("uses");
                 long lastUse = resultSet.getLong("last_use");
-                usesList.add(new LocationEntry(playerID, warpName, location, uses, lastUse));
+                usesList.add(new LocationEntry(playerID, warpName, location, uses));
             }
 
             return usesList;
@@ -176,8 +174,7 @@ public class UserwarpLocationSQL {
                 playerLocations.put(warpName, new LocationEntry(iD,
                         warpName,
                         new Location(Bukkit.getWorld(world), locationX, locationY, locationZ, yaw, pitch),
-                        resultSet.getInt("uses"),
-                        resultSet.getLong("last_use")));
+                        resultSet.getInt("uses")));
             }
 
             return playerLocations;
@@ -203,7 +200,7 @@ public class UserwarpLocationSQL {
                         resultSet.getFloat("location_pitch"));
                 int uses = resultSet.getInt("uses");
                 long lastUse = resultSet.getLong("last_use");
-                usesList.add(new LocationEntry(playerID, warpName, location, uses, lastUse));
+                usesList.add(new LocationEntry(playerID, warpName, location, uses));
             }
 
             return usesList;

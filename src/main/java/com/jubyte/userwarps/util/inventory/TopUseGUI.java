@@ -80,7 +80,7 @@ public class TopUseGUI extends PaginatedMenu {
 
     public void buildGUI() {
         build();
-        warpList.sort((Comparator.comparing(LocationEntry::getLastUse).reversed()));
+        warpList.sort((Comparator.comparing(LocationEntry::getUses).reversed()));
         addContent(warpList);
         setButtons(warpList);
     }

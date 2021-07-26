@@ -17,14 +17,12 @@ public class LocationEntry {
     private final String warpName;
     private final Location location;
     private int uses;
-    private long lastUse;
 
-    public LocationEntry(int playerID, String warpName, Location location, int uses, long lastUse) {
+    public LocationEntry(int playerID, String warpName, Location location, int uses) {
         this.playerID = playerID;
         this.warpName = warpName;
         this.location = location;
         this.uses = uses;
-        this.lastUse = lastUse;
     }
 
     public int getPlayerID() {
@@ -39,8 +37,8 @@ public class LocationEntry {
         return location;
     }
 
-    public long getLastUse() {
-        return lastUse;
+    public int getUses() {
+        return uses;
     }
 
     public void setUses() {
@@ -55,19 +53,5 @@ public class LocationEntry {
             e.printStackTrace();
         }
         this.uses = uses + 1;
-    }
-
-    public void setLastUse() {
-        String query = "UPDATE user_warp_location SET last_use=? WHERE player_id=? AND location_name=?";
-        try {
-            PreparedStatement statement = UserWarps.getPlugin().getMySQL().getConnection().prepareStatement(query);
-            statement.setLong(1, System.currentTimeMillis());
-            statement.setInt(2, playerID);
-            statement.setString(3, warpName);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        this.lastUse = System.currentTimeMillis();
     }
 }

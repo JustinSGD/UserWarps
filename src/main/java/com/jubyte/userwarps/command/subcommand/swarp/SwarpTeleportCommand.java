@@ -38,7 +38,6 @@ public class SwarpTeleportCommand implements SubCommand {
                     player.teleport(location);
                     player.sendMessage(ConfigData.SUBCOMMAND_SWARP_TP_SUCCESSFUL.replace("[warpName]", warpName));
                     LocationCache.PLAYER_WARP_LOCATION_MAP.get(warpName).setUses();
-                    LocationCache.PLAYER_WARP_LOCATION_MAP.get(warpName).setLastUse();
                     UserwarpPlayerSQL.addLastUseWarp(player.getUniqueId(), warpName);
                 } else {
                     player.sendMessage(ConfigData.SUBCOMMAND_SWARP_TP_WORLD_DONT_EXISTS);

@@ -70,7 +70,7 @@ public class EditWarpGUI extends PaginatedMenu {
                             DeleteConfirmGUI deleteConfirmGUI = new DeleteConfirmGUI();
                             deleteConfirmGUI.setWarpName(warpName);
                             deleteConfirmGUI.buildGUI();
-                            deleteConfirmGUI.deleteConfirmList.put(player, new LocationEntry(iD, warpName, null, 0, 0));
+                            deleteConfirmGUI.deleteConfirmList.put(player, new LocationEntry(iD, warpName, null, 0));
                             player.openInventory(deleteConfirmGUI.getInventory());
                         }
                     }

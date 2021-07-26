@@ -31,7 +31,7 @@ public class SwarpDeleteCommand implements SubCommand {
                 DeleteConfirmGUI deleteConfirmGUI = new DeleteConfirmGUI();
                 deleteConfirmGUI.setWarpName(warpName);
                 deleteConfirmGUI.buildGUI();
-                deleteConfirmGUI.deleteConfirmList.put(player, new LocationEntry(iD, warpName, null, 0, 0));
+                deleteConfirmGUI.deleteConfirmList.put(player, new LocationEntry(iD, warpName, null, 0));
                 player.openInventory(deleteConfirmGUI.getInventory());
             } else {
                 player.sendMessage(ConfigData.SUBCOMMAND_SWARP_DELETE_NOT_EXISTS.replace("[warpName]", warpName));

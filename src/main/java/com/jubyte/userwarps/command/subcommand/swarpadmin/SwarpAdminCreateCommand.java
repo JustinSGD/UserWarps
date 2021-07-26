@@ -58,7 +58,7 @@ public class SwarpAdminCreateCommand implements SubCommand {
                             location.getYaw(),
                             location.getPitch());
                     if (!LocationCache.existsLocation(warpName)) {
-                        LocationCache.addLocation(warpName, new LocationEntry(iD, warpName, location, 0, 0));
+                        LocationCache.addLocation(warpName, new LocationEntry(iD, warpName, location, 0));
                     }
                     player.sendMessage(ConfigData.SUBCOMMAND_SWARP_ADMIN_CREATE_CREATED.replace("[warpName]", warpName));
                 } else {

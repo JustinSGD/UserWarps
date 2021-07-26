@@ -1,6 +1,7 @@
 package com.jubyte.userwarps.util.inventory;
 
 import com.jubyte.userwarps.database.UserwarpLocationSQL;
+import com.jubyte.userwarps.database.UserwarpPlayerSQL;
 import com.jubyte.userwarps.listener.PlayerJoinListener;
 import com.jubyte.userwarps.util.ConfigData;
 import com.jubyte.userwarps.util.ItemBuilder;
@@ -11,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -60,8 +62,8 @@ public class LastUseGUI extends Menu {
 
     public void createInventory(Player player) {
         if(getTitle() == null) return;
-        int iD = PlayerJoinListener.PLAYER_INFORMATION_MAP.get(player.getUniqueId());
-        List<String> warpNames = new ArrayList<>(UserwarpLocationSQL.getTopWarpsByPlayer(iD));
+        List<String> warpNames = UserwarpPlayerSQL.getLastUseWarps(player.getUniqueId());
+        Collections.reverse(warpNames);
         String warpItem = ConfigData.LAST_USE_GUI_ITEMS_WARP;
         for (int i = 0; i < warpNames.size(); i++) {
             for(String warpName : warpNames)

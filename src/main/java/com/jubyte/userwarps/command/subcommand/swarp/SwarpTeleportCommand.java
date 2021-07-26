@@ -1,6 +1,7 @@
 package com.jubyte.userwarps.command.subcommand.swarp;
 
 import com.jubyte.userwarps.database.UserwarpLocationSQL;
+import com.jubyte.userwarps.database.UserwarpPlayerSQL;
 import com.jubyte.userwarps.database.location.LocationCache;
 import com.jubyte.userwarps.util.ConfigData;
 import com.jubyte.userwarps.util.SubCommand;
@@ -38,6 +39,7 @@ public class SwarpTeleportCommand implements SubCommand {
                     player.sendMessage(ConfigData.SUBCOMMAND_SWARP_TP_SUCCESSFUL.replace("[warpName]", warpName));
                     LocationCache.PLAYER_WARP_LOCATION_MAP.get(warpName).setUses();
                     LocationCache.PLAYER_WARP_LOCATION_MAP.get(warpName).setLastUse();
+                    UserwarpPlayerSQL.addLastUseWarp(player.getUniqueId(), warpName);
                 } else {
                     player.sendMessage(ConfigData.SUBCOMMAND_SWARP_TP_WORLD_DONT_EXISTS);
                 }

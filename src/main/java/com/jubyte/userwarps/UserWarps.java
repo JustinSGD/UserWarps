@@ -82,7 +82,8 @@ public class UserWarps extends JavaPlugin {
         mySQL = new MySQL();
         mySQL.createConnection();
         if(mySQL.isConnected()) {
-            mySQL.update("CREATE TABLE IF NOT EXISTS `user_warp_player` (`player_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, `player_uuid` varchar(36) NOT NULL)");
+            mySQL.update("CREATE TABLE IF NOT EXISTS `user_warp_player` (`player_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, `player_uuid` varchar(36) NOT NULL, " +
+                    "`last_use_warps` varchar(1000))");
             mySQL.update("CREATE TABLE IF NOT EXISTS `user_warp_location` (`player_id` int(11) NOT NULL, " +
                     "`location_name` varchar(25) NOT NULL PRIMARY KEY, " +
                     "`location_world` varchar(50) NOT NULL, " +

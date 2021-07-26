@@ -22,12 +22,12 @@ public class MySQL {
                 String mysqlUser = UserWarps.getPlugin().getConfig().getString("MySQL.User");
                 String mysqlPassword = UserWarps.getPlugin().getConfig().getString("MySQL.Password");
                 connection = DriverManager.getConnection("jdbc:mysql://" + mysqlHost + ":" + mysqlPort + "/" + mysqlDatabase + "?autoReconnect=true", mysqlUser, mysqlPassword);
-                UserWarps.getPlugin().getLogger().info("Die MySQL Verbindung wurde hergestellt.");
+                UserWarps.getPlugin().getLogger().info("The MySQL connection has been established.");
             } catch (SQLException e) {
-                UserWarps.getPlugin().getLogger().warning("Die MySQL Verbindung konnte nicht hergestellt werden.");
+                UserWarps.getPlugin().getLogger().warning("The MySQL connection could not be established.");
             }
         } else {
-            UserWarps.getPlugin().getLogger().warning("Es besteht bereits eine MySQL Verbindung");
+            UserWarps.getPlugin().getLogger().warning("A MySQL connection already exists");
         }
     }
 
@@ -47,12 +47,12 @@ public class MySQL {
         if (isConnected()) {
             try {
                 connection.close();
-                UserWarps.getPlugin().getLogger().info("Die MySQL Verbindung wurde getrennt.");
+                UserWarps.getPlugin().getLogger().info("The MySQL connection was terminated.");
             } catch (SQLException var1) {
                 var1.printStackTrace();
             }
         } else {
-            UserWarps.getPlugin().getLogger().info("Es gibt keine offene Verbindung.");
+            UserWarps.getPlugin().getLogger().info("There is no open connection.");
         }
 
     }
@@ -63,9 +63,9 @@ public class MySQL {
 
     public void update(String query)	{
         try	{
-            Statement st = connection.createStatement();
-            st.executeUpdate(query);
-            st.close();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+            statement.close();
         }
         catch (SQLException e) {
             createConnection();

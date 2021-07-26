@@ -5,4 +5,7 @@ version: 1.0.0-SNAPSHOT
 main: com.jubyte.userwarps.UserWarps
 api-version: 1.13
 commands:
-  test:
+  swarp:
+    description: 'Test'
+  swarpadmin:
+    description: 'Test'

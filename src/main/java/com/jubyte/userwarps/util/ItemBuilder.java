@@ -1,4 +1,4 @@
-package com.jubyte.userwarps.utils;
+package com.jubyte.userwarps.util;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -35,7 +35,6 @@ public class ItemBuilder {
 
     public ItemBuilder addEnchantment(Enchantment em, int level) {
         meta.addEnchant(em, level, true);
-
         return this;
     }
 
@@ -46,7 +45,6 @@ public class ItemBuilder {
 
     public ItemBuilder setUnbreakable() {
         meta.setUnbreakable(true);
-
         return this;
     }
 

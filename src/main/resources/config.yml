@@ -9,16 +9,93 @@ Messages:
   Prefix: '§7[§eUserWarp§7]'
   SWarpCommand:
     Help: '[prefix] §7Um deine §6Warps §7zu verwalten, gebe §e/swarp [warpname] [delete|create|list|tp] §7ein.'
+    Cooldown: '[prefix] §7Warte bevor du das Inventar §cerneut §7öffnest.'
+    Deactivated: '[prefix] §7Der Befehl ist vorrübergehen §cdeaktiviert§7.'
+  SWarpCreateSubcommand:
+    WarpCreated: '[prefix] §7Du hast den Warp §e[warpName] §aerstellt§7.'
+    WarpAlreadyExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cbereits§7.'
+    WarpNameTooLong: '[prefix] §7Der Warpname kann maximal nur §c24 Zeichen §7haben.'
+  SWarpDeleteSubcommand:
+    WarpNotExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cnicht§7.'
+  SWarpListSubcommand:
+    Warps: '[prefix] §7Warps: §e[warps]'
+    Append: '§7,§e '
+    NoWarps: '[prefix] §7Du hast §ckeine §7Warps.'
+  SWarpTpSubcommand:
+    TpSuccessful: '[prefix] §7Du hast dich zum Warp §e[warpName] §ateleportiert§7.'
+    WarpDontExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cnicht§7.'
+    WorldDontExists: '[prefix] §7Die Welt existiert §cnicht §7mehr.'
+  SWarpAdminCommand:
+    Permission: 'swarp.admin'
+    NoPerms: '[prefix]'
+  SWarpAdminCreateSubcommand:
+    WarpCreated: '[prefix] §7Du hast den Warp §e[warpName] §7für §b[player] §aerstellt§7.'
+    WarpAlreadyExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cbereits§7.'
+    WarpNameTooLong: '[prefix] §7Der Warpname kann maximal nur §c24 Zeichen §7haben.'
+  SWarpAdminDeleteSubcommand:
+    WarpNotExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cnicht§7.'
+  SWarpAdminListSubcommand:
+    Warps: '[prefix] §7Warps von §b[player]§7: §e[warps]'
+    Append: '§7,§e '
+    NoWarps: '[prefix] §7Du hast §ckeine §7Warps.'
+  SWarpAdminTpSubcommand:
+    TpSuccessful: '[prefix] §7Du hast dich zum Warp §e[warpName] §ateleportiert§7.'
+    WarpDontExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cnicht§7.'
+    WorldDontExists: '[prefix] §7Die Welt existiert §cnicht §7mehr.'
+  DeleteConfirmGUI:
+    WarpNotExists: '[prefix] §7Der Warp §e[warpName] §7existiert §cnicht§7.'
+    WarpDeleted: '[prefix] §7Du hast den Warp §e[warpName] §cgelöscht.'
 
 Inventory:
-  Main:
-    Title: ' §7» §eUserWarps'
+  Items:
+    FillItem:
+      Name: '§9'
+    PreviousGUIItem:
+      Name: '§7» §cZurück'
+    PreviousPageItem:
+      Name: '§7» §eVorherige Seite'
+    NextPageItem:
+      Name: '§7» §eNächste Seite'
+  MainGUI:
+    Title: '§eUserWarps'
     Items:
-      Bookshelf:
+      AlphabeticalGUI:
         Name: '§7» §eWarps §7(§aAlphabetisch sortiert§7)'
-      Clock:
+      LastUseGUI:
         Name: '§7» §eWarps §7(§aZuletzt genutzte Warps§7)'
-      Book:
+      TopUseGUI:
         Name: '§7» §eWarps §7(§aMeist genutzte Warps§7)'
-      Comparator:
+      EditWarpGUI:
         Name: '§7» §eWarps §7(§aVerwaltung§7)'
+  AlphabeticalGUI:
+    Title: '§eWarps §7(§aAlphabetisch sortiert§7)'
+    Items:
+      Warps:
+        Name: '§7» §e[warpName]'
+  LastUseGUI:
+    Title: '§eWarps §7(§aZuletzt genutzte Warps§7)'
+    Items:
+      Warps:
+        Name: '§7» §e[warpName]'
+  TopUseGUI:
+    Title: '§eWarps §7(§aMeist genutzte Warps§7)'
+    Items:
+      Warps:
+        Name: '§7» §e[warpName]'
+  EditWarpGUI:
+    Title: '§eWarps §7(§aVerwaltung§7)'
+    Items:
+      Warps:
+        Name: '§7» §e[warpName]'
+  DeleteConfirmGUI:
+    Title: '§cMöchtest du den Warp §e[warp] §clöschen?'
+    Items:
+      YesItem:
+        Name: '§7Ja, ich möchte.'
+      NoItem:
+        Name: '§7Nein, ich möchte nicht.'
+  AdminGUI:
+    Title: '§bWarps von §e[player]'
+    Items:
+      Warps:
+        Name: '§7» §e[warpName]'

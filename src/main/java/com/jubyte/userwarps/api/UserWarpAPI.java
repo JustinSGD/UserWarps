@@ -1,4 +1,4 @@
-package com.jubyte.userwarps.util;
+package com.jubyte.userwarps.api;
 
 import com.jubyte.userwarps.UserWarps;
 import com.jubyte.userwarps.database.UserwarpLocationSQL;

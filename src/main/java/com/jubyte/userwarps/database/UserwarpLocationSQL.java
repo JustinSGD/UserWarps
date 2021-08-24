@@ -133,7 +133,6 @@ public class UserwarpLocationSQL {
                         resultSet.getFloat("location_yaw"),
                         resultSet.getFloat("location_pitch"));
                 int uses = resultSet.getInt("uses");
-                long lastUse = resultSet.getLong("last_use");
                 usesList.add(new LocationEntry(playerID, warpName, location, uses));
             }
 
@@ -199,10 +198,9 @@ public class UserwarpLocationSQL {
                         resultSet.getFloat("location_yaw"),
                         resultSet.getFloat("location_pitch"));
                 int uses = resultSet.getInt("uses");
-                long lastUse = resultSet.getLong("last_use");
                 usesList.add(new LocationEntry(playerID, warpName, location, uses));
+                System.out.println(usesList.size());
             }
-
             return usesList;
         } catch (SQLException e) {
             return null;

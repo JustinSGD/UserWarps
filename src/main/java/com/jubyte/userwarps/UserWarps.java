@@ -92,8 +92,7 @@ public class UserWarps extends JavaPlugin {
                     "`location_z` double(50, 14) NOT NULL, " +
                     "`location_yaw` float(50) NOT NULL, " +
                     "`location_pitch` float(50) NOT NULL, " +
-                    "`uses` int(11) NOT NULL, " +
-                    "`last_use` bigint(50) NOT NULL)");
+                    "`uses` int(11) NOT NULL");
         }
     }
 
